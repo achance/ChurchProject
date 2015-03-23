@@ -31,7 +31,7 @@ p {padding-bottom:22px}
 strong {color:#dcd9cf}
 /* ============================= header ====================== */
 header {}
-#logo {display:block;background:url(../images/logo.png) 0 0 no-repeat;width:146px;height:83px;text-indent:-9999px}
+#logo {display:block;background:url(../images/logoNBC.png) 0 0 no-repeat;width:146px;height:120px;text-indent:-9999px}
 #menu {float:right;padding:28px 12px 20px 0}
 #menu li {float:left;padding-left:1px}
 #menu li a {display:block;padding:0 20px;height:42px;font-size:18px;color:#dad6cc;line-height:42px;text-transform:uppercase;text-decoration:none;font-weight:400}
