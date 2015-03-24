@@ -21,14 +21,14 @@ h2 span {font-weight:300}
 h2 strong, .box1 h2 strong {font-weight:700;display:inline-block;width:36px;color:#fff;text-align:center;background:url(../images/bg_title1.gif) 0 4px repeat-x;margin-right:3px}
 h2.color2 strong {background-image:url(../images/bg_title2.gif)}
 h2.color3 strong {background-image:url(../images/bg_title3.gif)}
-h3 {font-size:35px;color:#dad6cc;font-weight:400;line-height:1.2em;padding:25px 0 0 35px;float:left;letter-spacing:-1px}
-h4 {color:#dad6cc;font-weight:300;font-size:35px;line-height:1.2em;padding:0 0 7px 0;letter-spacing:-1px}
+h3 {font-size:35px;color: #6cd6af;font-weight:400;line-height:1.2em;padding:25px 0 0 35px;float:left;letter-spacing:-1px}
+h4 {color: #575652;font-weight:300;font-size:35px;line-height:1.2em;padding:0 0 7px 0;letter-spacing:-1px}
 h4 span {color:#ffc11e;font-weight:400}
 h4.color2 span {color:#9ecf39}
 h4.color3 span {color:#6cd6af}
 #page4 h4, #page5 h4 {padding:25px 0 16px 0;margin-left:-3px}
 p {padding-bottom:22px}
-strong {color:#dcd9cf}
+strong {color:#000}
 /* ============================= header ====================== */
 header {}
 #logo {display:block;background:url(../images/logoNBC.png) 0 0 no-repeat;width:146px;height:120px;text-indent:-9999px}
@@ -68,7 +68,7 @@ header {}
 .box1 {background:url(../images/bg_box1.jpg) top center no-repeat #dad6cc;border-top:5px solid #cdc8bc;padding:15px 30px 29px}
 .box1 strong {color:#3f3f3f}
 .box1 figure {box-shadow:0 0 3px #a4a19a;-moz-box-shadow:0 0 3px #a4a19a;-webkit-box-shadow:0 0 3px #a4a19a;position:relative}
-.box2 {background:#0e0c0a;padding:25px 30px 32px}
+.box2 {background: #dcd8cf;padding:25px 30px 32px}
 .box2 .line1, .box2 .line2 {background-image:url(../images/line_vert2.gif)}
 #page4 .box2 {margin-top:7px;padding-top:30px;padding-bottom:28px}
 .line1 {background:url(../images/line_vert1.gif) 289px 0 repeat-y}
@@ -109,7 +109,7 @@ header {}
 .address {float:left;width:80px}
 .img1 {position:absolute;right:0;top:32px}
 /* ============================= footer ====================== */
-footer {background:#000;padding:21px 36px 44px}
+footer {background:#a6a6a6;padding:21px 36px 44px}
 #footer_logo {float:left;font-size:46px;font-weight:300;text-transform:uppercase;color:#dedbd2;line-height:1.2em;text-decoration:none;letter-spacing:-3px;margin-left:-4px}
 #footer_logo span {color:#ffc11e}
 #icons {float:right;padding:20px 0 0 0}
@@ -135,5 +135,5 @@ footer nav {float:left}
 #ContactForm .textarea_box {width:100%;overflow:hidden;min-height:103px;padding-bottom:5px}
 #ContactForm {}
 #ContactForm a {margin-left:10px;width:72px;text-align:center;float:right}
-#ContactForm .input {width:470px;background:#000;padding:3px 5px;color:#575652;font:12px "Trebuchet MS", Arial, Helvetica, sans-serif;height:14px}
-#ContactForm textarea {overflow:auto;width:470px;background:#000;padding:3px 5px;color:#575652;font:12px "Trebuchet MS", Arial, Helvetica, sans-serif;height:91px}
+#ContactForm .input {width:470px;background:#dcd8cf;padding:3px 5px;color:#575652;font:12px "Trebuchet MS", Arial, Helvetica, sans-serif;height:14px}
+#ContactForm textarea {overflow:auto;width:470px;background:#dcd8cf;padding:3px 5px;color:#575652;font:12px "Trebuchet MS", Arial, Helvetica, sans-serif;height:91px}

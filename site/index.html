@@ -48,7 +48,7 @@
 					<ul id="menu">
 						<li id="menu_active"><a href="index.html">Home</a></li>
 						<li><a href="Mission.html">Our Mission</a></li>
-						<li><a href="News.html">News &amp; Press</a></li>
+						<li><a href="News.html">News &amp; Events</a></li>
 						<li><a href="Help.html">How to Help</a></li>
 						<li><a href="Contact.html">Contact</a></li>
 					</ul>
@@ -79,9 +79,10 @@
 					</li>
 				</ul>
 				<ul class="pagination">
-					<li id="banner1"><a href="Help.html">Make<span>Donations</span></a></li>
-					<li id="banner2"><a href="Mission.html">Join<span>Us</span></a></li>
-					<li id="banner3"><a href="Contact.html">Learn<span>More</span></a></li>
+                    <!-- Using location.assign as a workaround for href...   -->
+					<li id="banner2"><a onclick="window.open('Mission.html')">Join<span>Us</span></a></li>
+                    <li id="banner1"><a onclick="location.assign('Help.html')">Make<span>Donations</span></a></li>
+					<li id="banner3"><a onclick="location.assign('Contact.html')">Learn<span>More</span></a></li>
 				</ul>
 			</div>
 		</header>
@@ -92,20 +93,20 @@
 				<div class="box1">
 					<div class="line1"><div class="line2 wrapper">
 						<section class="col1">
-							<h2><strong>T</strong>rue<span>Story 1</span></h2>
-							<div class="pad_bot1"><figure><img src="images/page1_img1.jpg" alt=""></figure></div>
-							Hope Center is one of <a href="http://blog.templatemonster.com/free-website-templates/" target="_blank">free website tem- plates</a> by TemplateMonster.com, opti- mized for 1024X768 res.
+							<h2><strong>H</strong>appening<span>Now</span></h2>
+							<div class="pad_bot1"><figure><img src="images/bgmcBig.jpg" alt=""></figure></div>
+							New Beginning is dedicated to helping BGMC!
 							<a href="#" class="button1">Read More</a>
 						</section>
 						<section class="col1 pad_left1">
-							<h2 class="color2"><strong>T</strong>rue<span>Story 2</span></h2>
-							<div class="pad_bot1"><figure><img src="images/page1_img2.jpg" alt=""></figure></div>
-							This <a class="color0" href="http://blog.templatemonster.com/2011/07/18/free-website-template-charity-jquery-slider-typography/" target="_blank" rel="nofollow">Hope Center Template</a> goes with two packages – with PSD source files and without them.<a href="#" class="button1 color2">Read More</a>
+							<h2 class="color2"><strong>C</strong>oming<span>Soon</span></h2>
+							<div class="pad_bot1"><figure><img src="images/bgmcBig.jpg" alt=""></figure></div>
+
 						</section>
 						<section class="col1 pad_left1">
-							<h2 class="color3"><strong>T</strong>rue<span>Story 3</span></h2>
-							<div class="pad_bot1"><figure><img src="images/page1_img3.jpg" alt=""></figure></div>
-							This website template has several pages:<a href="index.html" class="link1">Home</a>,<a href="Mission.html" class="link1">Our Mission</a>,<a href="News.html" class="link1">News and Press</a>,<a href="Help.html" class="link1">How to Help</a>,<a href="Contact.html" class="link1">Contact Us</a>.<a href="#" class="button1 color3">Read More</a>
+							<h2 class="color3"><strong>T</strong>rue<span>Story </span></h2>
+							<div class="pad_bot1"><figure><img src="images/bgmcBig.jpg" alt=""></figure></div>
+							IDK What to put here?!?!
 						</section>
 					</div></div>
 				</div>	
@@ -113,29 +114,29 @@
 			<div class="wrapper">
 				<h3>Our Mission</h3>
 				<p class="quot">
-					REAL people REAL Church living REAL lives filled with the RADICAL LOVE of JESUS.<img src="images/quot2.png" alt="">
+                    REAL people, REAL church, living REAL lives <br/>filled with the RADICAL LOVE of JESUS.<img src="images/quot2.png" alt="">
 				</p>
 			</div>
 			<div class="wrapper">
 				<div class="box2">
 					<div class="line1"><div class="line2 wrapper">
 						<section class="col1">
-							<h4><span>June 31</span>2011</h4>
-							<p class="pad_bot2"><strong>Ned ut perspiciatis unde omnis</strong></p>
-							<p>Natus error sit voluptatem accusantium doloremque laudantium.</p>
-							<a href="#" class="button2">Read More</a>
+							<h4><span>Mar 25</span></h4>
+							<p class="pad_bot2"><strong>Money Matters</strong></p>
+							<p>Coninuing our series....</p>
+							<a href="News.html" class="button2">Read More</a>
 						</section>
 						<section class="col1 pad_left1">
-							<h4 class="color2"><span>June 29</span>2011</h4>
-							<p class="pad_bot2"><strong>At veroeos et accusamus etiusto</strong></p>
-							<p>Architecto beatae vitae dicta sunt explicabo emo enim ipsam.</p>
-							<a href="#" class="button2 color2">Read More</a>
+							<h4 class="color2"><span>March 29</span></h4>
+							<p class="pad_bot2"><strong>Farewell to Pastor Joey Johnson</strong></p>
+							<p>Join us in saying goodbye to Pastor Joey Johnson.</p>
+							<a href="News.html" class="button2 color2">Read More</a>
 						</section>
 						<section class="col1 pad_left1">
-							<h4 class="color3"><span>June 17</span>2011</h4>
-							<p class="pad_bot2"><strong>Temporibus quibusdam</strong></p>
-							<p>Magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
-							<a href="#" class="button2 color3">Read More</a>
+							<h4 class="color3"><span>April 5</span></h4>
+							<p class="pad_bot2"><strong>Easter Sunday</strong></p>
+							<p>Join us for a special Easter Service</p>
+							<a href="News.html" class="button2 color3">Read More</a>
 						</section>
 					</div></div>
 				</div>
@@ -146,16 +147,17 @@
 		<footer>
 			<div class="wrapper">
 				<a href="index.html" id="footer_logo"><span>New Beginning</span></a>
-				<ul id="icons">
-					<li><a href="https://www.facebook.com/pages/New-Beginning-Church/135542366518532?sk=timeline" class="normaltip" title="Facebook"><img src="images/icon1.gif" alt=""></a></li>
-				</ul>
+                <ul id="icons">
+                    <li>Follow <a href="https://www.facebook.com/pages/New-Beginning-Church/135542366518532?sk=timeline" target='blank' style="color: #ffc11e">New Beginning</a> on Facebook</li>
+                    <li><a href="https://www.facebook.com/pages/New-Beginning-Church/135542366518532?sk=timeline" target='blank' class="normaltip" title="Facebook"><img src="images/icon1.gif" alt=""></a></li>
+                </ul>
 			</div>	
 			<div class="wrapper">
 				<nav>
 					<ul id="footer_menu">
 						<li class="active"><a href="index.html">Home</a></li>
 						<li><a href="Mission.html">Our Mission</a></li>
-						<li><a href="News.html">News &amp; Press</a></li>
+						<li><a href="News.html">News &amp; Events</a></li>
 						<li><a href="Help.html">How to Help</a></li>
 						<li class="end"><a href="Contact.html">Contact</a></li>
 					</ul>
