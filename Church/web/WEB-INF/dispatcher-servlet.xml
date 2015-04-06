@@ -21,6 +21,12 @@
     <bean name="/mission.htm" class="com.church.controller.MissionController" />
     <bean name="/news.htm" class="com.church.controller.NewsController" />
     
+<!--    cms-->
+    <bean name="/cms/login.htm" class="com.church.cms.controller.LoginController" />
+    <bean name="/cms/index.htm" class="com.church.cms.controller.IndexController" />
+<!--    cms-->
+    
+    
 <!--    <bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping"/>
 
     

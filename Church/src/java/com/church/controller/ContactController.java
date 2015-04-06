@@ -24,7 +24,6 @@ public class ContactController implements Controller {
         ModelAndView mv = new ModelAndView();
         request.setCharacterEncoding("UTF-8");
         mv.addObject("active", "contact");
-        String a = request.getParameter("a");
         String action = StringUtils.getStringFormat(request.getParameter("a"));
         String name = StringUtils.getStringFormat(request.getParameter("yourname"));
         String email = StringUtils.getStringFormat(request.getParameter("youremail"));
