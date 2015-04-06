@@ -5,7 +5,6 @@
  */
 package com.church.cms.controller;
 
-import com.church.bean.Admin;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -16,22 +15,17 @@ import org.springframework.web.servlet.mvc.Controller;
  *
  * @author Binh
  */
-public class IndexController implements Controller {
+public class LogoutController implements Controller {
 
     @Override
     public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
         ModelAndView mv = new ModelAndView();
         request.setCharacterEncoding("UTF-8");
         HttpSession session = request.getSession();
-        if (session == null) {
-            response.sendRedirect("login.htm");
-            return null;
+        if (session != null) {
+            session.invalidate();
         }
-        Admin admin = (Admin) session.getAttribute("admin");
-        if (admin == null) {
-            response.sendRedirect("login.htm");
-            return null;
-        }
-        return mv;
+        response.sendRedirect("index.htm");
+        return null;
     }
 }

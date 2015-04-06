@@ -24,6 +24,7 @@
 <!--    cms-->
     <bean name="/cms/login.htm" class="com.church.cms.controller.LoginController" />
     <bean name="/cms/index.htm" class="com.church.cms.controller.IndexController" />
+    <bean name="/cms/logout.htm" class="com.church.cms.controller.LogoutController" />
 <!--    cms-->
     
     
