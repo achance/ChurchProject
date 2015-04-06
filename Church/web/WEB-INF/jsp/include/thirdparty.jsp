@@ -14,6 +14,7 @@
 <script type="text/javascript" src="js/backgroundPosition.js"></script>
 <script type="text/javascript" src="js/atooltip.jquery.js"></script>
 <script type="text/javascript" src="js/script.js"></script>
+<script type="text/javascript" src="js/tabs.js"></script>
 <!--[if lt IE 9]>
         <script type="text/javascript" src="js/html5.js"></script>
         <style type="text/css">

@@ -1,6 +1,6 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE>
+<!DOCTYPE html>
 
 <html lang="en">
     <head>
@@ -9,12 +9,14 @@
         <jsp:include page="include/thirdparty.jsp"/>
     </head>
 
-    <body>
     <body id="page1">
         <div class="body1">
             <div class="main">
                 <!-- header -->
-                <jsp:include page="include/header.jsp"/>
+                <header>
+                    <jsp:include page="include/header.jsp"/>
+                    <jsp:include page="include/slider.jsp"/>
+                </header>
                 <!-- / header -->
                 <!-- content -->
                 <article id="content">
@@ -53,19 +55,19 @@
                                         <h4><span>Mar 25</span></h4>
                                         <p class="pad_bot2"><strong>Money Matters</strong></p>
                                         <p>Coninuing our series....</p>
-                                        <a href="News.html" class="button2">Read More</a>
+                                        <a href="news.htm" class="button2">Read More</a>
                                     </section>
                                     <section class="col1 pad_left1">
                                         <h4 class="color2"><span>March 29</span></h4>
                                         <p class="pad_bot2"><strong>Farewell to Pastor Joey Johnson</strong></p>
                                         <p>Join us in saying goodbye to Pastor Joey Johnson.</p>
-                                        <a href="News.html" class="button2 color2">Read More</a>
+                                        <a href="news.htm" class="button2 color2">Read More</a>
                                     </section>
                                     <section class="col1 pad_left1">
                                         <h4 class="color3"><span>April 5</span></h4>
                                         <p class="pad_bot2"><strong>Easter Sunday</strong></p>
                                         <p>Join us for a special Easter Service</p>
-                                        <a href="News.html" class="button2 color3">Read More</a>
+                                        <a href="news.htm" class="button2 color3">Read More</a>
                                     </section>
                                 </div></div>
                         </div>
@@ -79,5 +81,4 @@
         </div>
         <jsp:include page="include/footerscript.jsp"/>
     </body>
-</body>
 </html>

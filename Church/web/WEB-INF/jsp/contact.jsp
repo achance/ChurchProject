@@ -1,5 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE>
+<!DOCTYPE html>
 
 <html>
     <head>
@@ -8,12 +8,13 @@
         <jsp:include page="include/thirdparty.jsp"/>
     </head>
 
-    <body>
-    <body id="page1">
+    <body id="page5">
         <div class="body1">
             <div class="main">
                 <!-- header -->
-                <jsp:include page="include/header.jsp"/>
+                <header>
+                    <jsp:include page="include/header.jsp"/>
+                </header>
                 <!-- / header -->
                 <!-- content -->
                 <article id="content">
@@ -54,7 +55,7 @@
                             <h4 class="color3"><span>Contact</span>Form</h4>
                             <div>We would love to hear from you!</div>
                             <div style="color: red; font-weight: 700;text-align: center">${error}</div>
-                            
+
                             <form id="ContactForm" method="POST" target="_blank" accept-charset="UTF-8" enctype="application/x-www-form-urlencoded" autocomplete="off" novalidate>
                                 <div>
                                     <input type="hidden" name="a" value="submit" id="a"/>
@@ -75,27 +76,5 @@
                 <!-- / footer -->
             </div>
         </div>
-        <jsp:include page="include/footerscript.jsp"/>
-        
-        <script>
-            
-            
-function submitContact() {
-    var name = $("#name").val(), email = $("#email").val(), web = $("#web").val(), mess = $("#mess").val();
-    
-    if (name.trim() == "" || email.trim() == "" || web.trim() == "" || mess.trim() == "") {
-        alert("You must enter all information!!");
-    } else {
-        $("#ContactForm").submit();
-    }
-}
-
-function resetContact() {
-    var form = $("#ContactForm");
-    form.reset();
-}
-            
-        </script>
     </body>
-</body>
 </html>

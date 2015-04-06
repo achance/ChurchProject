@@ -17,6 +17,9 @@
     
     <bean name="/index.htm" class="com.church.controller.IndexController" />
     <bean name="/contact.htm" class="com.church.controller.ContactController" />
+    <bean name="/help.htm" class="com.church.controller.HelpController" />
+    <bean name="/mission.htm" class="com.church.controller.MissionController" />
+    <bean name="/news.htm" class="com.church.controller.NewsController" />
     
 <!--    <bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping"/>
 
