@@ -56,7 +56,7 @@
                             <div>We would love to hear from you!</div>
                             <div style="color: red; font-weight: 700;text-align: center">${error}</div>
 
-                            <form id="ContactForm" method="POST" target="_blank" accept-charset="UTF-8" enctype="application/x-www-form-urlencoded" autocomplete="off" novalidate>
+                            <form id="ContactForm" method="POST" accept-charset="UTF-8" enctype="application/x-www-form-urlencoded" autocomplete="off" novalidate>
                                 <div>
                                     <input type="hidden" name="a" value="submit" id="a"/>
                                     <div class="wrapper"><span>Your Name:</span><input type="text" class="input" name="yourname" id="name"></div>

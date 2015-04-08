@@ -11,10 +11,37 @@ package com.church.bean;
  * @author Binh
  */
 public class Contact {
+    private int id;
     private String name;
     private String email;
     private String web;
     private String message;
+    private String createdTime;
+    private int status;
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getCreatedTime() {
+        return createdTime;
+    }
+
+    public void setCreatedTime(String createdTime) {
+        this.createdTime = createdTime;
+    }
 
     public String getName() {
         return name;
