@@ -45,7 +45,8 @@
                                                         <th>Website</th>
                                                         <th>Message</th>
                                                         <th>Created Time</th>
-                                                        <th>Command</th>
+                                                        <th>Status</th>
+                                                        <th></th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -68,6 +69,8 @@
                                                                     <c:if test="${item.status == 0}">
                                                                     <a onclick="updateStatus(${item.id}, ${item.status})" style="cursor: pointer;text-decoration: none;"><i class="fa fa-times fa-fw"></i></a>
                                                                     </c:if>
+                                                            </td>
+                                                            <td style="text-align: center">
                                                                 <a onclick="deleteContact(${item.id})" style="cursor: pointer;text-decoration: none;"><i class="fa fa-times-circle fa-fw"></i> Delete</a>
                                                             </td>
                                                         </tr>
@@ -109,14 +112,14 @@
                 $('#ContactForm').submit();
             }
 
-            function updateStatus(id,status) {
+            function updateStatus(id, status) {
                 $('#id').val(id);
                 $('#action').val('updateStatus');
                 $('#status').val(status);
                 $('#ContactForm').submit();
             }
-            
-            
+
+
         </script>
     </body>
 </html>
