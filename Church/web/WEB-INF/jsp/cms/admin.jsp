@@ -70,6 +70,7 @@
                                                         <th>Id</th>
                                                         <th>Username</th>
                                                         <th>Password</th>
+                                                        <th></th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -83,6 +84,7 @@
                                                             <td>${item.adminid}</td>
                                                             <td>${item.adminName}</td>
                                                             <td>${item.adminPassword}</td>
+                                                            <td><a onclick="editAdmin(${item.adminid}, '${item.adminName}')" style="cursor: pointer;text-decoration: none;"><i class="fa fa-file-text fa-fw"></i> Edit</a></td>
                                                         </tr>
                                                     </c:forEach>
                                                 </tbody>
@@ -142,7 +144,8 @@
                     event.preventDefault();
                     var username = $('#username').val();
                     var password = $('#password').val();
-                    if (username === null || username === '' || password === null || password === '') {
+                    var action = $('#action').val();
+                    if (action!='update' && (username === null || username === '' || password === null || password === '')) {
                         alert("Please enter all field!!");
                     } else {
                         $('#username').prop("disabled", true);
@@ -158,10 +161,22 @@
                         $('#username').val('');
                         $('#password').val('');
                         $('#action').val('');
+                        $('#id').val('');
                     }
                 });
 
             });
+
+            function editAdmin(id, username) {
+                $('#id').val(id);
+                $('#username').val(username);
+                $('#action').val('update');
+                $('#btnSave').prop("disabled", false);
+                $('#btnCancel').prop("disabled", false);
+                $('#btnInsert').prop("disabled", true);
+                $('#username').prop("disabled", false);
+                $('#password').prop("disabled", false);
+            }
         </script>
     </body>
 </html>

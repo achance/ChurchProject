@@ -50,6 +50,17 @@ public class AdminController implements Controller {
                 error = "Insert successfully!!";
             }
         }
+        if (action.equalsIgnoreCase("update")) {
+            int id = StringUtils.getIntFormat(request.getParameter("id"));
+            username = StringUtils.getStringFormat(request.getParameter("username"));
+            password = StringUtils.getStringFormat(request.getParameter("password"));
+            int result = dao.updateAdmin(id, username, password);
+            if (result == 0) {
+                error = "Can not update!!";
+            } else {
+                error = "Update successfully!!";
+            }
+        }
 
         List<Admin> list = dao.getAdminList();
         int total = 0;

@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package com.church.dao;
 
 import com.church.bean.Admin;
@@ -23,11 +22,12 @@ import org.apache.log4j.Logger;
  * @author Binh
  */
 public class AdminDao {
+
     public static Logger logger = Logger.getLogger(AdminDao.class);
     private PreparedStatement pstmt;
     private ResultSet rs;
     private Connection conn;
-    
+
     public Admin login(String username, String password) {
         Admin admin = null;
         String strSQL = "SELECT adminid, admin_name FROM admin WHERE  admin_name = ? and admin_password = ?";
@@ -37,7 +37,7 @@ public class AdminDao {
             pstmt.setString(1, username);
             pstmt.setString(2, password);
             rs = pstmt.executeQuery();
-            if(rs.next()) {
+            if (rs.next()) {
                 admin = new Admin();
                 admin.setAdminid(rs.getInt("adminid"));
                 admin.setAdminName(rs.getString("admin_name"));
@@ -105,6 +105,42 @@ public class AdminDao {
                 }
             }
             logger.error("error in insertAdmin function", e);
+        } finally {
+            DBPool.releaseConnection(conn, pstmt, rs);
+        }
+        return 0;
+    }
+
+    public int updateAdmin(int id, String username, String password) {
+        int editpass = 0;
+        if (StringUtils.isNotNullorEmpty(password)) {
+            password = StringUtils.md5Hash(password);
+            editpass = 1;
+        }
+        String strSQL = "update admin set admin_name=?,admin_password=? where adminid=?";
+        if (editpass == 0) {
+            strSQL = "update admin set admin_name=? where adminid=?";
+        }
+        try {
+            conn = DBPool.getConnection();
+            pstmt = conn.prepareStatement(strSQL);
+            int i = 0;
+            pstmt.setString(++i, username);
+            if (editpass == 1) {
+                pstmt.setString(++i, password);
+            }
+            pstmt.setInt(++i, id);
+            pstmt.executeUpdate();
+            return 1;
+        } catch (Exception e) {
+            if (conn != null) {
+                try {
+                    conn.rollback();
+                } catch (SQLException ex) {
+                    logger.error("error in rollback Connection", ex);
+                }
+            }
+            logger.error("error in updateAdmin function", e);
         } finally {
             DBPool.releaseConnection(conn, pstmt, rs);
         }
