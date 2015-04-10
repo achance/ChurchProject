@@ -1,8 +1,3 @@
-<%-- 
-    Document   : navigator
-    Created on : Apr 8, 2015, 9:51:18 PM
-    Author     : Binh
---%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>

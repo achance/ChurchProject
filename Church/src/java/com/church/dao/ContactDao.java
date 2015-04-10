@@ -14,6 +14,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Date;
 import org.apache.log4j.Logger;
 
 public class ContactDao {
@@ -24,7 +25,8 @@ public class ContactDao {
     private Connection conn;
 
     public int insertContact(Contact contact) {
-        String strSQL = "INSERT INTO contact (name,email,website,message) VALUES (?,?,?,?)";
+        String strSQL = "INSERT INTO contact (name,email,website,message,status,created_time) VALUES (?,?,?,?,?,?)";
+        Date now = new Date();
         try {
             conn = DBPool.getConnection();
             pstmt = conn.prepareStatement(strSQL);
@@ -32,6 +34,8 @@ public class ContactDao {
             pstmt.setString(2, contact.getEmail());
             pstmt.setString(3, contact.getWeb());
             pstmt.setString(4, contact.getMessage());
+            pstmt.setInt(5, contact.getStatus());
+            pstmt.setDate(6, new java.sql.Date(now.getTime()));
             pstmt.executeUpdate();
             return 1;
         } catch (Exception e) {
