@@ -15,140 +15,92 @@
             <div id="page-wrapper">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">News & Event</h1>
+                        <h1 class="page-header">News And Eventt</h1>
                     </div>
-                    <table>
-                        <div id="page-wrapper">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <h1 class="page-header">Forms</h1>
+                    <!-- /.col-lg-12 -->
+                </div>
+                <!-- /.row -->
+                <form id="UserForm" method="POST" accept-charset="UTF-8" enctype="application/x-www-form-urlencoded" autocomplete="off" novalidate>
+                    <input type="hidden" name="action" id="action" />
+                    <input type="hidden" name="id" id="id"/>
+                    <input type="hidden" name="status" id="status"/>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    News
                                 </div>
-                                <!-- /.col-lg-12 -->
-                            </div>
-                            <!-- /.row -->
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <div class="panel panel-default">
-                                        <div class="panel-heading">
-                                            Basic Form Elements
-                                        </div>
-                                        <div class="panel-body">
-                                            <div class="row">
-                                                <div class="col-lg-6">
-                                                    <form role="form">
-                                                        <div class="form-group">
-                                                            <label>Text Input</label>
-                                                            <input class="form-control">
-                                                            <p class="help-block">Example block-level help text here.</p>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label>Text Input with Placeholder</label>
-                                                            <input class="form-control" placeholder="Enter text">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label>Static Control</label>
-                                                            <p class="form-control-static">email@example.com</p>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label>File input</label>
-                                                            <input type="file">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label>Text area</label>
-                                                            <textarea class="form-control" rows="3"></textarea>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label>Checkboxes</label>
-                                                            <div class="checkbox">
-                                                                <label>
-                                                                    <input type="checkbox" value="">Checkbox 1
-                                                                </label>
-                                                            </div>
-                                                            <div class="checkbox">
-                                                                <label>
-                                                                    <input type="checkbox" value="">Checkbox 2
-                                                                </label>
-                                                            </div>
-                                                            <div class="checkbox">
-                                                                <label>
-                                                                    <input type="checkbox" value="">Checkbox 3
-                                                                </label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label>Inline Checkboxes</label>
-                                                            <label class="checkbox-inline">
-                                                                <input type="checkbox">1
-                                                            </label>
-                                                            <label class="checkbox-inline">
-                                                                <input type="checkbox">2
-                                                            </label>
-                                                            <label class="checkbox-inline">
-                                                                <input type="checkbox">3
-                                                            </label>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label>Radio Buttons</label>
-                                                            <div class="radio">
-                                                                <label>
-                                                                    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>Radio 1
-                                                                </label>
-                                                            </div>
-                                                            <div class="radio">
-                                                                <label>
-                                                                    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">Radio 2
-                                                                </label>
-                                                            </div>
-                                                            <div class="radio">
-                                                                <label>
-                                                                    <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3">Radio 3
-                                                                </label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label>Inline Radio Buttons</label>
-                                                            <label class="radio-inline">
-                                                                <input type="radio" name="optionsRadiosInline" id="optionsRadiosInline1" value="option1" checked>1
-                                                            </label>
-                                                            <label class="radio-inline">
-                                                                <input type="radio" name="optionsRadiosInline" id="optionsRadiosInline2" value="option2">2
-                                                            </label>
-                                                            <label class="radio-inline">
-                                                                <input type="radio" name="optionsRadiosInline" id="optionsRadiosInline3" value="option3">3
-                                                            </label>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label>Selects</label>
-                                                            <select class="form-control">
-                                                                <option>1</option>
-                                                                <option>2</option>
-                                                                <option>3</option>
-                                                                <option>4</option>
-                                                                <option>5</option>
-                                                            </select>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label>Multiple Selects</label>
-                                                            <select multiple class="form-control">
-                                                                <option>1</option>
-                                                                <option>2</option>
-                                                                <option>3</option>
-                                                                <option>4</option>
-                                                                <option>5</option>
-                                                            </select>
-                                                        </div>
-                                                        <button type="submit" class="btn btn-default">Submit Button</button>
-                                                        <button type="reset" class="btn btn-default">Reset Button</button>
-                                                    </form>
-                                                </div>
-
-                                                </table>
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label>News Title</label>
+                                                <input type="text" class="form-control" name="titlenews" id="titlenews" value="" disabled>
                                             </div>
+                                            <div class="form-group">
+                                                <label>News Content</label>
+                                                <input type="text" class="form-control" name="contentnews" id="contentnews" value="" disabled>
+                                            </div>
+                                           <div class="form-group">
+                                                <label>published_time</label>
+                                                <input type="text" class="form-control" name="newspublishedtime" id="newspublishedtime" value="" disabled>
+                                            </div>
+                                            <button type="submit" id="btnSave" class="btn btn-default" disabled>Save</button>
+                                            
                                         </div>
-                                        <!-- /#page-wrapper -->
-
                                     </div>
-                                    <!-- /#wrapper -->
-                                    <jsp:include page="include/footerscript.jsp"/>
-                                    </body>
-                                    </html>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                            </div>
+                            <!-- /.panel -->
+                        </div>
+                        <!-- /.col-lg-12 -->
+                    </div>
+                </form>
+                <!-- /.row -->
+            </div>
+            <!-- /#page-wrapper -->
+        </div>
+        <!-- /#wrapper -->
+        <!-- jQuery -->
+
+        <jsp:include page="include/footerscript.jsp"/>
+        <script>
+            $(document).ready(function() {
+                $('#dataTables-example').DataTable({
+                    responsive: true
+                });
+            <c:if test="${error != ''}">
+                alert("${error}");
+            </c:if>
+
+            
+                $("#btnSave").click(function() {
+                    event.preventDefault();
+                    var titlenews = $('#titlenews').val();
+                    var contentnews = $('#contentnews').val();
+                    var action = $('#action').val();
+                    if (action!='update' && (titlenews === null || titlenews === '' || contentnews === null || contentnews === '')) {
+                        alert("Please enter all field!!");
+                    } else {
+                        $('#titlenews').prop("disabled", true);
+                        $('#contentnews').prop("disabled", true);
+                        $('#btnSave').prop("disabled", true);
+                        $('#password').prop("disabled", false);
+                        $('#UserForm').submit();
+                        $('#username').prop("disabled", true);
+                        $('#password').prop("disabled", true);
+                        $('#username').val('');
+                        $('#password').val('');
+                        $('#action').val('');
+                        $('#id').val('');
+                    }
+                });
+            });
+
+          
+        </script>
+    </body>
+</html>
