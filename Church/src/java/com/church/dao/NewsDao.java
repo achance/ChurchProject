@@ -26,15 +26,14 @@ public class NewsDao {
     private Connection conn;
 
     public int insertnewsandevent(Newsandevent newsandevent ) {
-        String strSQL = "INSERT INTO newsandevent (id,tittle,description,published_time) VALUES (?,?,?,?)";
+        String strSQL = "INSERT INTO newsandevent (title,description,published_time,created_time,updated_time) VALUES (?,?,?,getdate(),getdate())";
         Date now = new Date();
         try {
             conn = DBPool.getConnection();
             pstmt = conn.prepareStatement(strSQL);
-            pstmt.setInt(1, newsandevent.getId());
-            pstmt.setString(2, newsandevent.getTittle());
-            pstmt.setString(3, newsandevent.getDescription());
-            pstmt.setDate(4, new java.sql.Date(now.getTime()));
+            pstmt.setString(1, newsandevent.getTitle());
+            pstmt.setString(2, newsandevent.getDescription());
+            pstmt.setDate(3, new java.sql.Date(now.getTime()));
             pstmt.executeUpdate();
             return 1;
         } catch (Exception e) {
@@ -51,84 +50,6 @@ public class NewsDao {
         }
         return 0;
     }
-
-    public List<Contact> getContactList() {
-        List<Contact> list = new ArrayList<Contact>();
-        String strSQL = "SELECT * FROM contact";
-        try {
-            conn = DBPool.getConnection();
-            pstmt = conn.prepareStatement(strSQL);
-            rs = pstmt.executeQuery();
-            while (rs.next()) {
-                Contact contact = new Contact();
-                contact.setId(rs.getInt("id"));
-                contact.setName(rs.getString("name"));
-                contact.setEmail(rs.getString("email"));
-                contact.setWeb(rs.getString("website"));
-                contact.setMessage(rs.getString("message"));
-                contact.setStatus(rs.getInt("status"));
-                contact.setCreatedTime(StringUtils.formatDate(rs.getTimestamp("created_time")));
-                list.add(contact);
-            }
-        } catch (Exception e) {
-            if (conn != null) {
-                try {
-                    conn.rollback();
-                } catch (SQLException ex) {
-                    logger.error("error in rollback Connection", ex);
-                }
-            }
-            logger.error("error in getContactList function", e);
-        } finally {
-            DBPool.releaseConnection(conn, pstmt, rs);
-        }
-        return list;
-    }
-
-    public int deleteContact(int id) {
-        String strSQL = "delete from contact where id = ?";
-        try {
-            conn = DBPool.getConnection();
-            pstmt = conn.prepareStatement(strSQL);
-            pstmt.setInt(1, id);
-            pstmt.executeUpdate();
-            return 1;
-        } catch (Exception e) {
-            if (conn != null) {
-                try {
-                    conn.rollback();
-                } catch (SQLException ex) {
-                    logger.error("error in rollback Connection", ex);
-                }
-            }
-            logger.error("error in deleteContact function", e);
-        } finally {
-            DBPool.releaseConnection(conn, pstmt, rs);
-        }
-        return 0;
-    }
-
-    public int updateContact(int id, int status) {
-        String strSQL = "update contact set status = ? where id = ?";
-        try {
-            conn = DBPool.getConnection();
-            pstmt = conn.prepareStatement(strSQL);
-            pstmt.setInt(1, status == 0 ? 1 : 0);
-            pstmt.setInt(2, id);
-            pstmt.executeUpdate();
-            return 1;
-        } catch (Exception e) {
-            if (conn != null) {
-                try {
-                    conn.rollback();
-                } catch (SQLException ex) {
-                    logger.error("error in rollback Connection", ex);
-                }
-            }
-            logger.error("error in updateContact function", e);
-        } finally {
-            DBPool.releaseConnection(conn, pstmt, rs);
-        }
-        return 0;
-    }
 }
+   
+

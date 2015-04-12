@@ -6,16 +6,16 @@
 package com.church.cms.controller;
 
 import com.church.bean.Admin;
+import com.church.bean.Newsandevent;
+import com.church.dao.NewsDao;
+import com.church.utils.StringUtils;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.Controller;
 
-/**
- *
- * @author Binh
- */
+
 public class NewsController implements Controller {
 
     @Override
@@ -32,6 +32,25 @@ public class NewsController implements Controller {
             response.sendRedirect("login.htm");
             return null;
         }
+        String error = "";
+        
+        NewsDao dao = new NewsDao();
+        String action = StringUtils.getStringFormat(request.getParameter("action"));
+        String tittle = "", description = "";
+        if (action.equalsIgnoreCase("insert")) {
+            tittle = StringUtils.getStringFormat(request.getParameter("titlenews"));
+            description = StringUtils.getStringFormat(request.getParameter("contentnews"));
+            Newsandevent newevent = new Newsandevent();
+            newevent.setTitle(tittle);
+            newevent.setDescription(description);
+            int result = dao.insertnewsandevent(newevent);
+            if (result == 0) {
+                error = "Can not insert!!";
+            } else {
+                error = "Insert successfully!!";
+            }
+        }
+        mv.addObject("error", error);
         return mv;
     }
 }

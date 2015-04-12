@@ -13,10 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.Controller;
 
-/**
- *
- * @author Binh
- */
+
 public class ContactController implements Controller {
 
     @Override

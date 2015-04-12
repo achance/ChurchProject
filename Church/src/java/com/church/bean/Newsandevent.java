@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package com.church.bean;
 
 /**
@@ -11,11 +10,11 @@ package com.church.bean;
  * @author Binh
  */
 public class Newsandevent {
+
     private int id;
     private String title;
     private String description;
     private String published_time;
-
 
     public int getId() {
         return id;
@@ -25,12 +24,12 @@ public class Newsandevent {
         this.id = id;
     }
 
-    public String getTittle() {
+    public String getTitle() {
         return title;
     }
 
-    public void setTittle(String tittle) {
-        this.title = tittle;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getDescription() {
@@ -48,7 +47,5 @@ public class Newsandevent {
     public void setPublished_time(String published_time) {
         this.published_time = published_time;
     }
-   
 
-    
 }
