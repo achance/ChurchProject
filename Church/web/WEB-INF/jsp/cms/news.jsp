@@ -59,7 +59,7 @@
                         <div class="col-lg-12">
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    User List
+                                    Display New and Event
                                 </div>
                                 <!-- /.panel-heading -->
                                 <c:if test="${total == 0}">
@@ -73,7 +73,7 @@
                                                     <tr>
                                                         <th>Title</th>
                                                         <th>Content</th>
-                                                        <th>Date Time Create</th>
+                                                        <th>Created Time</th>
                                                         <th></th>
                                                     </tr>
                                                 </thead>
@@ -88,7 +88,10 @@
                                                             <td>${item.id}</td>
                                                             <td>${item.title}</td>
                                                             <td>${item.description}</td>
-                                                            <td><a onclick="editNews(${item.id}, '${item.title}', '${item.description}')" style="cursor: pointer;text-decoration: none;"><i class="fa fa-file-text fa-fw"></i> Edit</a></td>
+                                                            <td>${item.published_time}</td>
+                                                            <td>
+                                                                <!--<a onclick="editNews(${item.id}, '${item.title}', '${item.description}' '${item.published_time}')" style="cursor: pointer;text-decoration: none;"><i class="fa fa-file-text fa-fw"></i> Edit</a>-->
+                                                            </td>
                                                         </tr>
                                                     </c:forEach>
                                                 </tbody>
@@ -96,8 +99,7 @@
                                         </div>
                                     </div>
                                 </c:if>
-                                    
-                                    
+                                                                       
                             </div>
                             <!-- /.panel -->
                         </div>

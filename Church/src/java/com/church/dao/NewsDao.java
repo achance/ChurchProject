@@ -6,6 +6,7 @@
 package com.church.dao;
 
 import com.church.bean.Contact;
+
 import com.church.bean.Newsandevent;
 import com.church.utils.DBPool;
 import com.church.utils.StringUtils;
@@ -49,6 +50,36 @@ public class NewsDao {
             DBPool.releaseConnection(conn, pstmt, rs);
         }
         return 0;
+    }
+    
+    public List<Newsandevent> getNewsandeventList() {
+        List<Newsandevent> list = new ArrayList<>();
+        String strSQL = "SELECT * FROM newsandevent";
+        try {
+            conn = DBPool.getConnection();
+            pstmt = conn.prepareStatement(strSQL);
+            rs = pstmt.executeQuery();
+            while (rs.next()) {
+                Newsandevent newsevent = new Newsandevent();
+                newsevent.setId(rs.getInt("id"));
+                newsevent.setTitle(rs.getString("title"));
+                newsevent.setDescription(rs.getString("description"));
+                newsevent.setPublished_time(rs.getString("published_time"));
+                list.add(newsevent);
+            }
+        } catch (Exception e) {
+            if (conn != null) {
+                try {
+                    conn.rollback();
+                } catch (SQLException ex) {
+                    logger.error("error in rollback Connection", ex);
+                }
+            }
+            logger.error("error in getAdminList function", e);
+        } finally {
+            DBPool.releaseConnection(conn, pstmt, rs);
+        }
+        return list;
     }
 }
    

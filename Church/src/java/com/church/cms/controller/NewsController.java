@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.Controller;
-
+import java.util.List;
 
 public class NewsController implements Controller {
 
@@ -50,7 +50,16 @@ public class NewsController implements Controller {
                 error = "Insert successfully!!";
             }
         }
+         List<Newsandevent> list = dao.getNewsandeventList();
+        int total = 0;
+        if (list != null && list.size() > 0) {
+            total = list.size();
+        }
+        mv.addObject("total", total);
+        mv.addObject("list", list);
         mv.addObject("error", error);
+        mv.addObject("tittle", tittle);
+        mv.addObject("description", description);
         return mv;
     }
 }
