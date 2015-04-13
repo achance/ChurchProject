@@ -6,7 +6,6 @@
 package com.church.dao;
 
 import com.church.bean.Admin;
-import com.church.bean.Admin;
 import com.church.utils.DBPool;
 import com.church.utils.StringUtils;
 import java.sql.Connection;

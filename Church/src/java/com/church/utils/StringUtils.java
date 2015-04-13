@@ -12,6 +12,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.jsoup.Jsoup;
 
 /**
  *
@@ -67,6 +68,23 @@ public class StringUtils {
             return "";
         }
     }
+    public static String formatDay(Date value) {
+        DateFormat format = new SimpleDateFormat("yyyy/MM/dd");
+        try {
+            return format.format(value);
+        } catch (Exception e) {
+            return "";
+        }
+    }
+    
+    public static Date parseDatefromDay(String day) {
+        DateFormat format = new SimpleDateFormat("yyyy/MM/dd");
+        try {
+            return format.parse(day);
+        } catch (Exception e) {
+            return null;
+        }
+    }
 
     public static void main(String[] args) {
         System.out.println(StringUtils.md5Hash("1234567"));
@@ -81,5 +99,13 @@ public class StringUtils {
             }
         }
         return number;
+    }
+
+    public static String html2text(String html) {
+        try {
+            return Jsoup.parse(html).text();
+        } catch (Exception e) {
+            return "";
+        }
     }
 }

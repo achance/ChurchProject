@@ -33,24 +33,58 @@ public class NewsController implements Controller {
             return null;
         }
         String error = "";
-        
+
         NewsDao dao = new NewsDao();
         String action = StringUtils.getStringFormat(request.getParameter("action"));
-        String tittle = "", description = "";
+        String tittle = "", description = "", publishtime = "";
         if (action.equalsIgnoreCase("insert")) {
             tittle = StringUtils.getStringFormat(request.getParameter("titlenews"));
             description = StringUtils.getStringFormat(request.getParameter("contentnews"));
+            publishtime = StringUtils.getStringFormat(request.getParameter("newspublishedtime"));
+            int status = StringUtils.getIntFormat(request.getParameter("newsstatus"));
             Newsandevent newevent = new Newsandevent();
             newevent.setTitle(tittle);
             newevent.setDescription(description);
-            int result = dao.insertnewsandevent(newevent);
+            newevent.setPublished_time(publishtime);
+            newevent.setStatus(status);
+            int result = dao.insertNewsandevent(newevent);
             if (result == 0) {
                 error = "Can not insert!!";
             } else {
                 error = "Insert successfully!!";
             }
         }
-         List<Newsandevent> list = dao.getNewsandeventList();
+        
+        if (action.equalsIgnoreCase("update")) {
+            int id = StringUtils.getIntFormat(request.getParameter("id"));
+            tittle = StringUtils.getStringFormat(request.getParameter("titlenews"));
+            description = StringUtils.getStringFormat(request.getParameter("contentnews"));
+            publishtime = StringUtils.getStringFormat(request.getParameter("newspublishedtime"));
+            int status = StringUtils.getIntFormat(request.getParameter("newsstatus"));
+            Newsandevent newevent = new Newsandevent();
+            newevent.setId(id);
+            newevent.setTitle(tittle);
+            newevent.setDescription(description);
+            newevent.setPublished_time(publishtime);
+            newevent.setStatus(status);
+            int result = dao.updateNewsandevent(newevent);
+            if (result == 0) {
+                error = "Can not update!!";
+            } else {
+                error = "Update successfully!!";
+            }
+        }
+        
+        if (action.equalsIgnoreCase("updateStatus")) {
+            int id = StringUtils.getIntFormat(request.getParameter("id"));
+            int status = StringUtils.getIntFormat(request.getParameter("status"));
+            int result = dao.updateStatus(id,status);
+            if (result == 0) {
+                error = "Can not update status!!";
+            }
+        }
+        
+        List<Newsandevent> list = dao.getNewsandeventList();
         int total = 0;
         if (list != null && list.size() > 0) {
             total = list.size();

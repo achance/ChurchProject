@@ -6,7 +6,7 @@
     <nav>
         <ul id="top_nav">
             <li><a href="index.htm"><img src="images/top_icon1.gif" alt=""></a></li>
-            <li><a href="#"><img src="images/top_icon2.gif" alt=""></a></li>
+            <li><a href="news.htm"><img src="images/top_icon2.gif" alt=""></a></li>
             <li class="end"><a href="contact.htm"><img src="images/top_icon3.gif" alt=""></a></li>
         </ul>
     </nav>

@@ -1,3 +1,4 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
@@ -25,69 +26,36 @@
                                     <h2><strong>L</strong>atest<span> News</span></h2>
                                     <div class="line1">
                                         <figure class="left marg_right1"><img src="images/page3_img1.jpg" alt=""></figure>
-                                        <p class="pad_bot1">
-                                            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
-                                        </p>
-                                        <p class="pad_bot2">
-                                            Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur.
-                                        </p>
+                                        ${newsandevent.description}
                                     </div>
                                 </section>
                             </div>
                         </div>	
                     </div>
-                    <div class="wrapper">
-                        <ul class="nav">
-                            <li class="selected"><a href="#March">March</a></li>
-                            <li><a href="#April">April</a></li>
-                            <li><a href="#May">May</a></li>
-                            <li><a href="#June">June</a></li>
-                        </ul>
-                    </div>
-                    <div class="wrapper">
-                        <div class="box2">
-                            <div class="wrapper tab-content" id="March">
-                                <section class="col1">
-                                    <h4><span>March </span>25</h4>
-                                    <p class="pad_bot2"><strong>Money Matters with Dave Ramsey</strong></p>
-                                    <p class="pad_bot1">We will continue on our Dave Ramsey series about Biblical Finance. Please bring your handouts if you have them</p>
-                                    <h4 class="color2"><span>March</span>29</h4>
-                                    <p class="pad_bot2"><strong>Farewell for Pastor Joey Johnson</strong></p>
-                                    <p class="pad_bot1">Join us Sunday as we say goodbye to Pastor Joey Johnson</p>
-                                </section>
-                            </div>
-                            <div class="wrapper tab-content" id="April">
-                                <section class="col1">
-                                    <h4><span>March </span>25</h4>
-                                    <p class="pad_bot2"><strong>Wednesday night we will continue our series on Biblical Finance with Dave Ramsey</strong></p>
-                                    <p class="pad_bot1">Please bring your handouts if you have them</p>
-                                    <h4 class="color2"><span>March</span>29</h4>
-                                    <p class="pad_bot2"><strong>Farewell for Pastor Joey Johnson</strong></p>
-                                    <p class="pad_bot1">Join us Sunday as we say goodbye to Pastor Joey Johnson</p>
-                                </section>
-                            </div>
-                            <div class="wrapper tab-content" id="May">
-                                <section class="col1">
-                                    <h4><span>March </span>25</h4>
-                                    <p class="pad_bot2"><strong>Wednesday night we will continue our series on Biblical Finance with Dave Ramsey</strong></p>
-                                    <p class="pad_bot1">Please bring your handouts if you have them</p>
-                                    <h4 class="color2"><span>March</span>29</h4>
-                                    <p class="pad_bot2"><strong>Farewell for Pastor Joey Johnson</strong></p>
-                                    <p class="pad_bot1">Join us Sunday as we say goodbye to Pastor Joey Johnson</p>
-                                </section>
-                            </div>
-                            <div class="wrapper tab-content" id="June">
-                                <section class="col1">
-                                    <h4><span>March </span>25</h4>
-                                    <p class="pad_bot2"><strong>Wednesday night we will continue our series on Biblical Finance with Dave Ramsey</strong></p>
-                                    <p class="pad_bot1">Please bring your handouts if you have them</p>
-                                    <h4 class="color2"><span>March</span>29</h4>
-                                    <p class="pad_bot2"><strong>Farewell for Pastor Joey Johnson</strong></p>
-                                    <p class="pad_bot1">Join us Sunday as we say goodbye to Pastor Joey Johnson</p>
-                                </section>
+                    <c:if test="${total > 0}">
+                        <div class="wrapper">
+                            <ul class="nav">
+                                <c:forEach items="${list}" var="item" varStatus="i">
+                                    <li <c:if test="${i.index==0}">class="selected"</c:if>><a href="#${item.published_time}">${item.month}</a></li>
+                                    </c:forEach>
+                            </ul>
+                        </div>
+                        <div class="wrapper">
+                            <div class="box2">
+                                <c:forEach items="${list}" var="item" varStatus="i">
+                                    <div class="wrapper tab-content" id="${item.published_time}">
+                                        <section class="col1">
+                                            <c:forEach items="${item.itemList}" var="item1" varStatus="j">
+                                                <h4 <c:if test="${j.index%2 == 0}">class="color2"</c:if>><span>${item1.month}</span> ${item1.day}</h4>
+                                                <p class="pad_bot2"><strong>${item1.title}</strong></p>
+                                                <p class="pad_bot1">${item1.description}</p>
+                                            </c:forEach>
+                                        </section>
+                                    </div>
+                                </c:forEach>
                             </div>
                         </div>
-                    </div>
+                    </c:if>
                 </article>
                 <!-- / content -->
                 <!-- footer -->

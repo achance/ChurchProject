@@ -27,3 +27,4 @@
 
 <!-- Custom Theme JavaScript -->
 <script src="../dist/js/sb-admin-2.js"></script>
+<script src="../jquery-ui-1.11.4.custom/jquery-ui.js"></script>

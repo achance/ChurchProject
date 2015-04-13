@@ -5,6 +5,8 @@
  */
 package com.church.bean;
 
+import java.util.List;
+
 /**
  *
  * @author Binh
@@ -14,7 +16,70 @@ public class Newsandevent {
     private int id;
     private String title;
     private String description;
+    private String minidesc;
     private String published_time;
+    private String created_time;
+    private String updated_time;
+    private int status;
+    private String month;
+    private String day;
+    private List<Newsandevent> itemList;
+
+    public String getDay() {
+        return day;
+    }
+
+    public void setDay(String day) {
+        this.day = day;
+    }
+
+    public List<Newsandevent> getItemList() {
+        return itemList;
+    }
+
+    public void setItemList(List<Newsandevent> itemList) {
+        this.itemList = itemList;
+    }
+
+    public String getMonth() {
+        return month;
+    }
+
+    public void setMonth(String month) {
+        this.month = month;
+    }
+    
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
+    public String getMinidesc() {
+        return minidesc;
+    }
+
+    public void setMinidesc(String minidesc) {
+        this.minidesc = minidesc;
+    }
+
+    public String getCreated_time() {
+        return created_time;
+    }
+
+    public void setCreated_time(String created_time) {
+        this.created_time = created_time;
+    }
+
+    public String getUpdated_time() {
+        return updated_time;
+    }
+
+    public void setUpdated_time(String updated_time) {
+        this.updated_time = updated_time;
+    }
 
     public int getId() {
         return id;

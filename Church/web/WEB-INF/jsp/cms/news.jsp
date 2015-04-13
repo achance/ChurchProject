@@ -20,7 +20,7 @@
                     <!-- /.col-lg-12 -->
                 </div>
                 <!-- /.row -->
-                <form id="UserForm" method="POST" accept-charset="UTF-8" enctype="application/x-www-form-urlencoded" autocomplete="off" novalidate>
+                <form id="NewsForm" method="POST" accept-charset="UTF-8" enctype="application/x-www-form-urlencoded" autocomplete="off" novalidate>
                     <input type="hidden" name="action" id="action" />
                     <input type="hidden" name="id" id="id"/>
                     <input type="hidden" name="status" id="status"/>
@@ -32,21 +32,30 @@
                                 </div>
                                 <div class="panel-body">
                                     <div class="row">
-                                        <div class="col-lg-6">
+                                        <div class="col-lg-12">
                                             <div class="form-group">
-                                                <label>News Title</label>
+                                                <label>Title</label>
                                                 <input type="text" class="form-control" name="titlenews" id="titlenews" value="" disabled>
                                             </div>
                                             <div class="form-group">
-                                                <label>News Content</label>
-                                                <input type="text" class="form-control" name="contentnews" id="contentnews" value="" disabled>
+                                                <label>Content</label>
+                                                <textarea name="contentnews" id="contentnews" rows="10">
+                                                </textarea>
                                             </div>
                                             <div class="form-group">
-                                                <label>published_time</label>
+                                                <label>Published Time</label>
                                                 <input type="text" class="form-control" name="newspublishedtime" id="newspublishedtime" value="" disabled>
                                             </div>
-                                            <button type="submit" id="btnSave" class="btn btn-default" disabled>Save</button>
+                                            <div class="form-group">
+                                                <label>Status</label>
+                                                <div class="checkbox">
+                                                    <label>
+                                                        <input type="checkbox" value="1" name="newsstatus" id="newsstatus">Active
+                                                    </label>
+                                                </div>
+                                            </div>
                                             <button type="button" id="btnInsert" class="btn btn-default">Insert</button>
+                                            <button type="submit" id="btnSave" class="btn btn-default" disabled>Save</button>
                                             <button type="button" id="btnCancel" class="btn btn-default" disabled>Cancel</button>
                                         </div>
                                     </div>
@@ -59,7 +68,7 @@
                         <div class="col-lg-12">
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    Display New and Event
+                                    News & Event List
                                 </div>
                                 <!-- /.panel-heading -->
                                 <c:if test="${total == 0}">
@@ -71,9 +80,13 @@
                                             <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                                 <thead>
                                                     <tr>
+                                                        <th>Id</th>
                                                         <th>Title</th>
-                                                        <th>Content</th>
+                                                        <th>Description</th>
+                                                        <th>Published Time</th>
+                                                        <th>Status</th>
                                                         <th>Created Time</th>
+                                                        <th>Updated Time</th>
                                                         <th></th>
                                                     </tr>
                                                 </thead>
@@ -87,19 +100,28 @@
                                                             </c:if>
                                                             <td>${item.id}</td>
                                                             <td>${item.title}</td>
-                                                            <td>${item.description}</td>
-                                                            <td>${item.published_time}</td>
-                                                            <td>
-                                                                <!--<a onclick="editNews(${item.id}, '${item.title}', '${item.description}' '${item.published_time}')" style="cursor: pointer;text-decoration: none;"><i class="fa fa-file-text fa-fw"></i> Edit</a>-->
+                                                            <td>${item.minidesc}</td>
+                                                            <td style="text-align: center">${item.published_time}</td>
+                                                            <td style="text-align: center">
+                                                                <c:if test="${item.status == 1}">
+                                                                    <a onclick="updateStatus(${item.id}, ${item.status})" style="cursor: pointer;text-decoration: none;"><i class="fa fa-check fa-fw"></i></a>
+                                                                    </c:if>
+                                                                    <c:if test="${item.status == 0}">
+                                                                    <a onclick="updateStatus(${item.id}, ${item.status})" style="cursor: pointer;text-decoration: none;"><i class="fa fa-times fa-fw"></i></a>
+                                                                    </c:if>
                                                             </td>
+                                                            <td style="text-align: center">${item.created_time}</td>
+                                                            <td style="text-align: center">${item.updated_time}</td>
+                                                            <td style="text-align: center"><a onclick="editNews(${item.id}, '${item.title}', '${item.description}', '${item.published_time}', '${item.status}')" style="cursor: pointer;text-decoration: none;"><i class="fa fa-file-text fa-fw"></i> Edit</a></td>
                                                         </tr>
                                                     </c:forEach>
                                                 </tbody>
                                             </table>
                                         </div>
                                     </div>
+                                    <!-- /.panel-body -->
+
                                 </c:if>
-                                                                       
                             </div>
                             <!-- /.panel -->
                         </div>
@@ -112,10 +134,25 @@
         </div>
         <!-- /#wrapper -->
         <!-- jQuery -->
-
         <jsp:include page="include/footerscript.jsp"/>
         <script>
-            $(document).ready(function () {
+            CKEDITOR.replace('contentnews');
+            var editor;
+            CKEDITOR.on('instanceReady', function(ev)
+            {
+                editor = ev.editor;
+                editor.setReadOnly(true);
+            });
+
+            function toggleReadOnly(isReadOnly)
+            {
+                editor.setReadOnly(isReadOnly);
+            }
+
+
+
+            $(document).ready(function() {
+                $("#newspublishedtime").datepicker({dateFormat: 'yy/mm/dd'});
                 $('#dataTables-example').DataTable({
                     responsive: true
                 });
@@ -124,56 +161,89 @@
             </c:if>
 
 
-                $("#btnSave").click(function () {
+                $("#btnSave").click(function() {
                     event.preventDefault();
                     var titlenews = $('#titlenews').val();
-                    var contentnews = $('#contentnews').val();
-                    var action = $('#action').val();
-                    if (action != 'update' && (titlenews === null || titlenews === '' || contentnews === null || contentnews === '')) {
+                    var contentnews = $('textarea.contentnews').val();
+                    var newspublishedtime = $('#newspublishedtime').val();
+                    //                    var action = $('#action').val();
+                    if (titlenews === null || titlenews === '' || contentnews === null || contentnews === '' || newspublishedtime === null || newspublishedtime === '') {
                         alert("Please enter all field!!");
                     } else {
-                        $('#titlenews').prop("disabled", false);
-                        $('#contentnews').prop("disabled", false);
-                        $('#UserForm').submit();
-                        $('#titlenews').prop("disabled", true);
-                        $('#contentnews').prop("disabled", true);
                         $('#newspublishedtime').prop("disabled", false);
+                        $('#titlenews').prop("disabled", false);
+                        $('#NewsForm').submit();
+                        $('#titlenews').prop("disabled", true);
+                        $('#newspublishedtime').prop("true", false);
+                        $("#newsstatus").attr("checked", false);
+                        toggleReadOnly();
                         $('#btnSave').prop("disabled", true);
                         $('#btnCancel').prop("disabled", true);
                         $('#titlenews').val('');
-                        $('#contentnews').val('');
+                        editor.setData('');
                         $('#action').val('');
                         $('#id').val('');
                     }
                 });
-                $("#btnInsert").click(function () {
+                $("#btnInsert").click(function() {
                     event.preventDefault();
                     $('#btnSave').prop("disabled", false);
                     $('#btnCancel').prop("disabled", false);
                     $('#btnInsert').prop("disabled", true);
                     $('#action').val('insert');
                     $('#titlenews').prop("disabled", false);
-                    $('#contentnews').prop("disabled", false);
                     $('#newspublishedtime').prop("disabled", false);
+                    $('#newsstatus').prop("disabled", false);
+                    $("#newsstatus").attr("checked", false);
                     $('#titlenews').val('');
-                    $('#contentnews').val('');
+                    editor.setData('');
+                    toggleReadOnly(false);
+                });
+
+
+                $("#btnCancel").click(function() {
+                    event.preventDefault();
+                    $('#btnSave').prop("disabled", true);
+                    $('#btnCancel').prop("disabled", true);
+                    $('#btnInsert').prop("disabled", false);
+                    $('#titlenews').prop("disabled", true);
+                    toggleReadOnly();
+                    $('#newspublishedtime').prop("disabled", true);
+                    $('#action').val('');
+                    $('#titlenews').val('');
+                    $('#newspublishedtime').val('');
+                    $('#newsstatus').prop("disabled", true);
+                    $('#newsstatus').val('');
+                    editor.setData('');
                 });
             });
-            $("#btnCancel").click(function () {
-                event.preventDefault();
-                $('#btnSave').prop("disabled", true);
-                $('#btnCancel').prop("disabled", true);
-                $('#btnInsert').prop("disabled", false);
-                $('#titlenews').prop("disabled", true);
-                $('#contentnews').prop("disabled", true);
-                $('#newspublishedtime').prop("disabled", true);
-                $('#action').val('');
-                $('#titlenews').val('');
-                $('#contentnews').val('');
-                $('#newspublishedtime').val('');
 
-            });
+            function editNews(id, title, description, published_time, status) {
+                $('#id').val(id);
+                $('#titlenews').val(title);
+                editor.setData(description);
+                $('#newspublishedtime').val(published_time);
+                if(status === '1')
+                {
+                    $("#newsstatus").attr("checked", true);
+                }
+                $('#action').val('update');
+                $('#btnSave').prop("disabled", false);
+                $('#btnCancel').prop("disabled", false);
+                $('#btnInsert').prop("disabled", true);
+                $('#titlenews').prop("disabled", false);
+                $('#newspublishedtime').prop("disabled", false);
+                $('#newsstatus').prop("disabled", false);
 
+                toggleReadOnly(false);
+            }
+
+            function updateStatus(id, status) {
+                $('#id').val(id);
+                $('#action').val('updateStatus');
+                $('#status').val(status);
+                $('#NewsForm').submit();
+            }
         </script>
     </body>
 </html>
