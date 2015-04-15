@@ -25,11 +25,11 @@ public class NewsDao {
 
     public int insertNewsandevent(Newsandevent newsandevent) {
         //sql
-        String strSQL = "INSERT INTO newsandevent (title,description,published_time,created_time,updated_time,status) "
-                + "VALUES (?,?,?,getdate(),getdate(),?)";
+       // String strSQL = "INSERT INTO newsandevent (title,description,published_time,created_time,updated_time,status) "
+          //      + "VALUES (?,?,?,getdate(),getdate(),?)";
         
         //mysql
-        strSQL = "INSERT INTO newsandevent (title,description,published_time,created_time,updated_time,status) "
+     String   strSQL = "INSERT INTO newsandevent (title,description,published_time,created_time,updated_time,status) "
                 + "VALUES (?,?,?,now(),now(),?)";
         try {
             conn = DBPool.getConnection();
@@ -95,11 +95,11 @@ public class NewsDao {
 
     public int updateNewsandevent(Newsandevent newsandevent) {
         //sql
-        String strSQL = "update newsandevent set title = ?,description = ?,published_time = ?,status=?,"
-                + "updated_time =getdate() where id = ?";
+     //   String strSQL = "update newsandevent set title = ?,description = ?,published_time = ?,status=?,"
+             //   + "updated_time =getdate() where id = ?";
         
         //mysql
-        strSQL = "update newsandevent set title = ?,description = ?,published_time = ?,status=?,"
+     String   strSQL = "update newsandevent set title = ?,description = ?,published_time = ?,status=?,"
                 + "updated_time =now() where id = ?";
         try {
             conn = DBPool.getConnection();
@@ -128,10 +128,10 @@ public class NewsDao {
 
     public int updateStatus(int id, int status) {
         //sql
-        String strSQL = "update newsandevent set status = ?, updated_time =getdate() where id = ?";
+      //  String strSQL = "update newsandevent set status = ?, updated_time =getdate() where id = ?";
         
         //mysql
-        strSQL = "update newsandevent set status = ?, updated_time =now() where id = ?";
+      String strSQL = "update newsandevent set status = ?, updated_time =now() where id = ?";
         try {
             conn = DBPool.getConnection();
             pstmt = conn.prepareStatement(strSQL);
